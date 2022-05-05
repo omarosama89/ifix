@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  mobile_number: MyString
+  verified: false
+  token: MyString
+  reset_token: MyString
+  last_login: 2022-05-05 19:17:13
+  current_ip: MyString
+
+two:
+  first_name: MyString
+  last_name: MyString
+  mobile_number: MyString
+  verified: false
+  token: MyString
+  reset_token: MyString
+  last_login: 2022-05-05 19:17:13
+  current_ip: MyString
