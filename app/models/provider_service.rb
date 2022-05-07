@@ -1,4 +1,7 @@
 class ProviderService < ApplicationRecord
+  # Delegation
+  delegate :name, to: :service
+
   # Validations
   validates :price, presence: true
 

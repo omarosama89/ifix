@@ -27,7 +27,14 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'rswag-api'
 gem 'rswag-ui'
-
+gem 'rabl'
+gem 'activeadmin'
+gem 'devise'
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
+gem 'sass-rails'
+  
 group :development, :test do
   gem 'rswag-specs'
   gem 'factory_bot_rails'
