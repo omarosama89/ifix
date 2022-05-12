@@ -7,9 +7,14 @@ describe 'users/registrations', type: :request do
       parameter name: :user, in: :body, schema: {
         type: :object,
         properties: {
-          first_name: { type: :string },
-          last_name: { type: :string },
-          mobile_number: { type: :string }
+          user: {
+            type: :object,
+            properties: {
+              first_name: { type: :string },
+              last_name: { type: :string },
+              mobile_number: { type: :string }
+            }
+          }
         },
         required: %w(first_name last_name mobile_number)
       }
@@ -47,8 +52,13 @@ describe 'users/registrations', type: :request do
       parameter name: :user, in: :body, schema: {
         type: :object,
         properties: {
-          mobile_number: { type: :string },
-          code: { type: :string },
+          user: {
+            type: :object,
+            properties: {
+              mobile_number: { type: :string },
+              code: { type: :string }
+            }
+          }
         },
         required: %w(mobile_number code)
       }

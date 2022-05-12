@@ -18,8 +18,8 @@ class Providers::SessionsController < Providers::BaseController
   def validate
     mobile_number = provider_params[:mobile_number]
     code = provider_params[:code]
-    other_code = @@cache.read(mobile_number)
-    if CodeAuthenticator.check(code, other_code)
+    cached_code = @@cache.read(mobile_number)
+    if CodeAuthenticator.check(code, cached_code)
       render json: { success: true }, status: :ok
     else
       render json: { success: false }, status: :unprocessable_entity

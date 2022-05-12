@@ -7,7 +7,12 @@ describe 'providers/sessions', type: :request do
       parameter name: :provider, in: :body, schema: {
         type: :object,
         properties: {
-          mobile_number: { type: :string }
+          provider: {
+            type: :object,
+            properties: {
+              mobile_number: { type: :string }
+            }
+          }
         },
         required: %w(mobile_number)
       }
@@ -48,8 +53,13 @@ describe 'providers/sessions', type: :request do
       parameter name: :provider, in: :body, schema: {
         type: :object,
         properties: {
-          mobile_number: { type: :string },
-          code: { type: :string },
+          provider: {
+            type: :object,
+            properties: {
+              mobile_number: { type: :string },
+              code: { type: :string },
+            }
+          }
         },
         required: %w(mobile_number code)
       }

@@ -5,8 +5,8 @@ module CodeAuthenticator
             TOKEN_LENGTH.times.map{rand(10)}.join
         end
 
-        def check(code, other_code)
-            code == other_code
+        def check(code, cached_code)
+            code == cached_code
         end
     end
 end

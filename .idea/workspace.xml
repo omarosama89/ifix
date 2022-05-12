@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4857b2fb-22a7-4916-8d34-0c0ba9d7ece4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ifix.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ifix.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/provider.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/provider.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/provider_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/provider_service.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/providers/registrations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/providers/registrations_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/providers/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/providers/sessions_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users/base_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/base_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/code_authenticator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/code_authenticator.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/providers/registrations_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/providers/registrations_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/providers/sessionss_spec.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/users/registrations_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/users/registrations_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/users/sessionss_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/users/sessionss_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/v1/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/v1/swagger.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +159,12 @@
       <updated>1651770724549</updated>
       <workItem from="1651770726612" duration="6758000" />
       <workItem from="1651931224373" duration="8836000" />
+      <workItem from="1651940722443" duration="625000" />
+      <workItem from="1652096567128" duration="12000" />
+      <workItem from="1652296695110" duration="191000" />
+      <workItem from="1652296887189" duration="24000" />
+      <workItem from="1652296921179" duration="4692000" />
+      <workItem from="1652304922374" duration="1759000" />
     </task>
     <servers />
   </component>

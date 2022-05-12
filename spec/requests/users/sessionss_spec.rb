@@ -7,7 +7,12 @@ describe 'users/sessions', type: :request do
       parameter name: :user, in: :body, schema: {
         type: :object,
         properties: {
-          mobile_number: { type: :string }
+          user: {
+            type: :object,
+            properties: {
+              mobile_number: { type: :string }
+            }
+          }
         },
         required: %w(mobile_number)
       }
@@ -48,8 +53,13 @@ describe 'users/sessions', type: :request do
       parameter name: :user, in: :body, schema: {
         type: :object,
         properties: {
-          mobile_number: { type: :string },
-          code: { type: :string },
+          user: {
+            type: :object,
+            properties: {
+              mobile_number: { type: :string },
+              code: { type: :string },
+            }
+          }
         },
         required: %w(mobile_number code)
       }

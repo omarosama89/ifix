@@ -19,12 +19,15 @@ paths:
             schema:
               type: object
               properties:
-                first_name:
-                  type: string
-                last_name:
-                  type: string
-                mobile_number:
-                  type: string
+                provider:
+                  type: object
+                  properties:
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    mobile_number:
+                      type: string
               required:
               - first_name
               - last_name
@@ -44,10 +47,13 @@ paths:
             schema:
               type: object
               properties:
-                mobile_number:
-                  type: string
-                code:
-                  type: string
+                provider:
+                  type: object
+                  properties:
+                    mobile_number:
+                      type: string
+                    code:
+                      type: string
               required:
               - mobile_number
               - code
@@ -66,8 +72,11 @@ paths:
             schema:
               type: object
               properties:
-                mobile_number:
-                  type: string
+                provider:
+                  type: object
+                  properties:
+                    mobile_number:
+                      type: string
               required:
               - mobile_number
   "/providers/sessions/validate":
@@ -85,10 +94,13 @@ paths:
             schema:
               type: object
               properties:
-                mobile_number:
-                  type: string
-                code:
-                  type: string
+                provider:
+                  type: object
+                  properties:
+                    mobile_number:
+                      type: string
+                    code:
+                      type: string
               required:
               - mobile_number
               - code
@@ -107,12 +119,15 @@ paths:
             schema:
               type: object
               properties:
-                first_name:
-                  type: string
-                last_name:
-                  type: string
-                mobile_number:
-                  type: string
+                user:
+                  type: object
+                  properties:
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    mobile_number:
+                      type: string
               required:
               - first_name
               - last_name
@@ -132,10 +147,13 @@ paths:
             schema:
               type: object
               properties:
-                mobile_number:
-                  type: string
-                code:
-                  type: string
+                user:
+                  type: object
+                  properties:
+                    mobile_number:
+                      type: string
+                    code:
+                      type: string
               required:
               - mobile_number
               - code
@@ -154,8 +172,11 @@ paths:
             schema:
               type: object
               properties:
-                mobile_number:
-                  type: string
+                user:
+                  type: object
+                  properties:
+                    mobile_number:
+                      type: string
               required:
               - mobile_number
   "/users/sessions/validate":
@@ -173,15 +194,18 @@ paths:
             schema:
               type: object
               properties:
-                mobile_number:
-                  type: string
-                code:
-                  type: string
+                user:
+                  type: object
+                  properties:
+                    mobile_number:
+                      type: string
+                    code:
+                      type: string
               required:
               - mobile_number
               - code
 servers:
-- url: https://{defaultHost}
+- url: http://{defaultHost}
   variables:
     defaultHost:
-      default: www.example.com
+      default: localhost:3000

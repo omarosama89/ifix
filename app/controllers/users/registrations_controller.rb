@@ -4,6 +4,7 @@ class Users::RegistrationsController < Users::BaseController
     mobile_number = @user.mobile_number
     @code = CodeAuthenticator.generate
     @@cache.write(mobile_number, @code)
+    binding.pry
     # #######
     # Send code in SMS goes here
     # #######
@@ -17,8 +18,8 @@ class Users::RegistrationsController < Users::BaseController
   def validate
     mobile_number = user_params[:mobile_number]
     code = user_params[:code]
-    other_code = @@cache.read(mobile_number)
-    if CodeAuthenticator.check(code, other_code)
+    cached_code = @@cache.read(mobile_number)
+    if CodeAuthenticator.check(code, cached_code)
       render json: { success: true }, status: :ok
     else
       render json: { success: false }, status: :unprocessable_entity
