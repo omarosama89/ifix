@@ -4,12 +4,11 @@ class Users::RegistrationsController < Users::BaseController
     mobile_number = @user.mobile_number
     @code = CodeAuthenticator.generate
     @@cache.write(mobile_number, @code)
-    binding.pry
     # #######
     # Send code in SMS goes here
     # #######
     if @user.save
-      render json: { success: true }, status: :created
+      render json: { success: true, code: @code }, status: :created
     else
       render json: { success: false, errors: @user.errors.messages }, status: :unprocessable_entity
     end
@@ -19,7 +18,12 @@ class Users::RegistrationsController < Users::BaseController
     mobile_number = user_params[:mobile_number]
     code = user_params[:code]
     cached_code = @@cache.read(mobile_number)
+
+    @user = User.find_by(mobile_number: mobile_number)
+    TokensSetter.run!(object: @user)
+
     if CodeAuthenticator.check(code, cached_code)
+      set_headers
       render json: { success: true }, status: :ok
     else
       render json: { success: false }, status: :unprocessable_entity

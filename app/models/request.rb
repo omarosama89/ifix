@@ -1,5 +1,5 @@
 class Request < ApplicationRecord
-  STATUSES = %w(pending processing completed)
+  STATUSES = %w(pending accepted processing completed)
 
   # Validations
   validates :status, presence: true, inclusion: { in: STATUSES }

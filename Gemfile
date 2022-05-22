@@ -34,7 +34,9 @@ gem 'cancancan'
 gem 'draper'
 gem 'pundit'
 gem 'sass-rails'
-  
+gem 'active_interaction', '~> 4.1'
+gem 'dry-monads'
+
 group :development, :test do
   gem 'rswag-specs'
   gem 'factory_bot_rails'

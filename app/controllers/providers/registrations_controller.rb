@@ -8,7 +8,7 @@ class Providers::RegistrationsController < Providers::BaseController
     # Send code in SMS goes here
     # #######
     if @provider.save
-      render json: { success: true }, status: :created
+      render json: { success: true, code: @code }, status: :created
     else
       render json: { success: false, errors: @provider.errors.messages }, status: :unprocessable_entity
     end
@@ -18,7 +18,11 @@ class Providers::RegistrationsController < Providers::BaseController
     mobile_number = provider_params[:mobile_number]
     code = provider_params[:code]
     cached_code = @@cache.read(mobile_number)
+
+    @provider = Provider.find_by(mobile_number: mobile_number)
+
     if CodeAuthenticator.check(code, cached_code)
+      set_tokens
       render json: { success: true }, status: :ok
     else
       render json: { success: false }, status: :unprocessable_entity
