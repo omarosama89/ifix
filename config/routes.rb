@@ -18,6 +18,8 @@ Rails.application.routes.draw do
         post :validate
       end
     end
+
+    resources :services, only: [:index]
   end
   namespace :providers do
     resources :registrations, only: [] do

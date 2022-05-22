@@ -10,8 +10,8 @@ class Users::BaseController < ApplicationController
   def authenticate_user!
     mobile_number = request.headers['ifix-mobile-number']
     token = request.headers['ifix-token']
-    if current_user.mobile_number != mobile_number && current_user.token != token
-      render json: { success: false, message: 'unquthorized' }, status: 401
+    unless current_user&.mobile_number == mobile_number && current_user&.token == token
+      render json: { success: false, message: 'unuthorized' }, status: 401
     end
   end
 

@@ -10,7 +10,7 @@ class Providers::BaseController < ApplicationController
   def authenticate_provider!
     mobile_number = request.headers['ifix-mobile-number']
     token = request.headers['ifix-token']
-    if current_provider.mobile_number != mobile_number && current_provider.token != token
+    unless current_provider.mobile_number == mobile_number && current_provider.token == token
       render json: { success: false, message: 'unquthorized' }, status: 401
     end
   end

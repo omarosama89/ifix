@@ -16,7 +16,6 @@ class Users::SessionsController < Users::BaseController
   end
 
   def validate
-    binding.pry
     mobile_number = user_params[:mobile_number]
     code = user_params[:code]
     cached_code = @@cache.read(mobile_number)

@@ -157,6 +157,28 @@ paths:
               required:
               - mobile_number
               - code
+  "/users/services":
+    get:
+      summary: list services
+      parameters:
+      - name: ifix-uid
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-token
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-mobile-number
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: services listed
   "/users/sessions/login":
     post:
       summary: login user

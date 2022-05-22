@@ -3,17 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4857b2fb-22a7-4916-8d34-0c0ba9d7ece4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/providers/base_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/providers/base_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/providers/registrations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/providers/registrations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/providers/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/providers/sessions_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/users/base_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/base_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/request.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/request.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/requests.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/requests.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/service.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/v1/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/v1/swagger.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +161,8 @@
       <workItem from="1652296921179" duration="4692000" />
       <workItem from="1652304922374" duration="2361000" />
       <workItem from="1652544627670" duration="11696000" />
-      <workItem from="1653149615282" duration="3333000" />
+      <workItem from="1653149615282" duration="3547000" />
+      <workItem from="1653216449236" duration="5642000" />
     </task>
     <servers />
   </component>
