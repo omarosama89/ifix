@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_07_153918) do
+ActiveRecord::Schema.define(version: 2022_05_28_162116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2022_05_07_153918) do
     t.string "current_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "lng", precision: 10, scale: 6
   end
 
   create_table "requests", force: :cascade do |t|
@@ -69,6 +71,8 @@ ActiveRecord::Schema.define(version: 2022_05_07_153918) do
     t.integer "provider_service_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "lng", precision: 10, scale: 6
   end
 
   create_table "services", force: :cascade do |t|

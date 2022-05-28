@@ -4,6 +4,8 @@ FactoryBot.define do
     status { 'pending' }
     user { create(:user) }
     provider_service { create(:provider_service) }
+    lat { Faker::Address.latitude }
+    lng { Faker::Address.longitude }
 
     Request::STATUSES.each do |status_name|
       trait status_name.to_sym do

@@ -6,6 +6,8 @@ FactoryBot.define do
     verified { true }
     token { SecureRandom.hex(16) }
     reset_token { SecureRandom.hex(16) }
+    lat { Faker::Address.latitude }
+    lng { Faker::Address.longitude }
 
     trait :unverified do
       verified { false }
