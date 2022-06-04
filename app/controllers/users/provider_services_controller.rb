@@ -1,7 +1,14 @@
-class Users::ServicesController < Users::BaseController
+class Users::ProviderServicesController < Users::BaseController
+  MAX_DISTANCE = 40
   before_action :authenticate_user!
 
   def index
-    @services = Service.includes(:provider_services).where.not(provider_services: { id: nil }).distinct
+    @provider_services = ProviderService.includes(:provider).where(service_id: provider_service_params[:service_ids])
+  end
+
+  private
+
+  def provider_service_params
+    params.require(:provider_service).permit(:service_ids, :lat, :lng, :max_distance)
   end
 end
