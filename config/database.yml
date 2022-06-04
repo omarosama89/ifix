@@ -87,5 +87,5 @@ staging:
 production:
   <<: *default
   database: ifix_production
-  username: ifix
+  username: vfix
   password: <%= ENV['IFIX_DATABASE_PASSWORD'] %>
