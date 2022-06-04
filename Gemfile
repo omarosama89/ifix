@@ -37,6 +37,11 @@ gem 'sass-rails'
 gem 'active_interaction', '~> 4.1'
 gem 'dry-monads'
 
+gem 'capistrano',                 '3.11.2'
+gem 'capistrano-rails',           '1.4.0'
+gem 'capistrano-rbenv',           '2.1.4 '
+gem 'capistrano-passenger',       '0.2.0'
+
 group :development, :test do
   gem 'rswag-specs'
   gem 'factory_bot_rails'
