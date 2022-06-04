@@ -42,7 +42,7 @@ gem 'capistrano-rails',           '1.4.0'
 gem 'capistrano-rbenv',           '2.1.4 '
 gem 'capistrano-passenger',       '0.2.1'
 
-group :development, :test do
+group :development, :test, :staging do
   gem 'rswag-specs'
   gem 'factory_bot_rails'
   gem 'pry'
