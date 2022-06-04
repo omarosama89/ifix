@@ -1,4 +1,4 @@
-class Users::ServicesController < Users::BaseController
+class Users::ProviderServicesController < Users::BaseController
   before_action :authenticate_user!
 
   def index
