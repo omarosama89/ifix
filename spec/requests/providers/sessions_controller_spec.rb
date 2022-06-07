@@ -19,18 +19,18 @@ describe 'providers/sessions', type: :request do
 
       response '200', 'provider created' do
         let(:mobile_number) { Faker::PhoneNumber.subscriber_number(length: 11) }
+        let!(:provider_record) { FactoryBot.create(:provider, mobile_number: mobile_number) }
         let(:provider) do
           { provider: {
-              mobile_number: mobile_number
-            }
+            mobile_number: mobile_number
+          }
           }
         end
 
-        before do
-          FactoryBot.create(:provider, mobile_number: mobile_number)
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body['success']).to eq(true)
         end
-
-        run_test!
       end
 
       response '422', 'unprocessable entity' do
@@ -42,11 +42,16 @@ describe 'providers/sessions', type: :request do
           }
         end
 
-        run_test!
+        let(:result) { {"success"=>false, "errors"=>"provider not found"} }
+
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body).to eq(result)
+        end
       end
     end
   end
-  
+
   path '/providers/sessions/validate' do
     post 'validate provider' do
       consumes 'application/json'
@@ -66,19 +71,30 @@ describe 'providers/sessions', type: :request do
 
       response '200', 'provider validated' do
         let(:code) { '1234' }
+        let(:mobile_number) { Faker::PhoneNumber.subscriber_number(length: 11) }
+        let!(:provider_record) { FactoryBot.create(:provider, mobile_number: mobile_number) }
         let(:provider) do
           { provider: {
-            mobile_number: Faker::PhoneNumber.subscriber_number(length: 11),
+            mobile_number: mobile_number,
             code: code
           }
           }
         end
-        
+
         before do
           allow(CodeAuthenticator).to receive(:check).with(code, nil).and_return(true)
         end
 
-        run_test!
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body['success']).to eq(true)
+
+          headers = response.headers
+          expect(headers['ifix-uid']).to eq(provider_record.id)
+          expect(headers['ifix-mobile-number']).to eq(provider_record.mobile_number)
+          expect(headers['ifix-token']).to eq(provider_record.token)
+          expect(headers['ifix-reset-token']).to eq(provider_record.reset_token)
+        end
       end
 
       response '422', 'provider invalidated' do
@@ -95,7 +111,16 @@ describe 'providers/sessions', type: :request do
           allow(CodeAuthenticator).to receive(:check).with(code, nil).and_return(false)
         end
 
-        run_test!
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body['success']).to eq(false)
+
+          headers = response.headers
+          expect(headers['ifix-uid']).to eq(nil)
+          expect(headers['ifix-mobile-number']).to eq(nil)
+          expect(headers['ifix-token']).to eq(nil)
+          expect(headers['ifix-reset-token']).to eq(nil)
+        end
       end
     end
   end

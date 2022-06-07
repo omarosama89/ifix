@@ -14,7 +14,15 @@ describe 'users/services', type: :request do
         let(:'ifix-mobile-number') { user.mobile_number }
         let(:'ifix-token') { user.token }
 
-        run_test!
+        let(:service) { FactoryBot.create(:service) }
+        let!(:provider_service) { FactoryBot.create(:provider_service, service: service) }
+
+        let(:result) { [{"id" => service.id, "name" => service.name}] }
+
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body).to match_array(result)
+        end
       end
 
       response '401', 'unauthorized' do
@@ -22,7 +30,11 @@ describe 'users/services', type: :request do
         let(:'ifix-mobile-number') { 'xx' }
         let(:'ifix-token') { 'xx' }
 
-        run_test!
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body['success']).to eq(false)
+          expect(parsed_body['message']).to eq('unuthorized')
+        end
       end
     end
   end

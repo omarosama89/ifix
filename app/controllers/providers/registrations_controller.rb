@@ -22,7 +22,7 @@ class Providers::RegistrationsController < Providers::BaseController
     @provider = Provider.find_by(mobile_number: mobile_number)
 
     if CodeAuthenticator.check(code, cached_code)
-      set_tokens
+      set_headers
       render json: { success: true }, status: :ok
     else
       render json: { success: false }, status: :unprocessable_entity

@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4857b2fb-22a7-4916-8d34-0c0ba9d7ece4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/ifix.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ifix.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/providers/registrations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/providers/registrations_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/users/provider_services_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/provider_services_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/providers/registrations_spec.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/providers/sessions_spec.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/users/registrations_spec.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/users/services_spec.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/users/sessionss_spec.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/v1/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/v1/swagger.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +49,7 @@
       <module name="ifix" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -65,7 +74,7 @@
       <module name="ifix" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -89,7 +98,7 @@
     <configuration name="spec: ifix" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="ifix" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -113,7 +122,7 @@
     <configuration name="test: ifix" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="ifix" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -160,6 +169,8 @@
       <workItem from="1653216449236" duration="5752000" />
       <workItem from="1653303244379" duration="10000" />
       <workItem from="1653754385576" duration="2049000" />
+      <workItem from="1654553909287" duration="2502000" />
+      <workItem from="1654626033631" duration="3271000" />
     </task>
     <servers />
   </component>

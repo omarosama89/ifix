@@ -104,6 +104,51 @@ paths:
               required:
               - mobile_number
               - code
+  "/users/provider_services":
+    get:
+      summary: list provider services
+      parameters:
+      - name: ifix-uid
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-token
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-mobile-number
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: service_ids
+        in: path
+        description: service ids comma separated
+        required: true
+        schema:
+          type: string
+      - name: lat
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: lng
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: max_distance
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: services listed
+        '401':
+          description: unauthorized
   "/users/registrations/sign_up":
     post:
       summary: Sign up user
@@ -179,6 +224,8 @@ paths:
       responses:
         '200':
           description: services listed
+        '401':
+          description: unauthorized
   "/users/sessions/login":
     post:
       summary: login user
@@ -227,7 +274,7 @@ paths:
               - mobile_number
               - code
 servers:
-- url: http://{defaultHost}
+- url: https://{defaultHost}
   variables:
     defaultHost:
-      default: localhost:3000
+      default: www.example.com
