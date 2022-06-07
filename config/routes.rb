@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
 
     resources :services, only: [:index]
+
+    resources :provider_services, only: [:index]
   end
   namespace :providers do
     resources :registrations, only: [] do

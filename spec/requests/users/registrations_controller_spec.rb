@@ -29,7 +29,11 @@ describe 'users/registrations', type: :request do
           }
         end
 
-        run_test!
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body['success']).to eq(true)
+          expect(User.count).to be(1)
+        end
       end
 
       response '422', 'unprocessable entity' do
@@ -40,8 +44,15 @@ describe 'users/registrations', type: :request do
             }
           }
         end
+        let(:result) do
+          {"last_name"=>["can't be blank"], "mobile_number"=>["can't be blank"]}
+        end
 
-        run_test!
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body['success']).to eq(false)
+          expect(parsed_body['errors']).to eq(result)
+        end
       end
     end
   end
@@ -65,11 +76,13 @@ describe 'users/registrations', type: :request do
 
       response '200', 'user validated' do
         let(:code) { '1234' }
+        let(:mobile_number) { Faker::PhoneNumber.subscriber_number(length: 11) }
+        let!(:user_record) { FactoryBot.create(:user, mobile_number: mobile_number) }
         let(:user) do
           { user: {
-            mobile_number: Faker::PhoneNumber.subscriber_number(length: 11),
-            code: code
-          }
+              mobile_number: mobile_number,
+              code: code
+            }
           }
         end
         
@@ -77,16 +90,29 @@ describe 'users/registrations', type: :request do
           allow(CodeAuthenticator).to receive(:check).with(code, nil).and_return(true)
         end
 
-        run_test!
+        run_test! do
+          user_record.reload
+
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body['success']).to eq(true)
+
+          headers = response.headers
+          expect(headers['ifix-uid']).to eq(user_record.id)
+          expect(headers['ifix-mobile-number']).to eq(user_record.mobile_number)
+          expect(headers['ifix-token']).to eq(user_record.token)
+          expect(headers['ifix-reset-token']).to eq(user_record.reset_token)
+        end
       end
 
       response '422', 'user invalidated' do
         let(:code) { '1234' }
+        let(:mobile_number) { Faker::PhoneNumber.subscriber_number(length: 11) }
+        let!(:user_record) { FactoryBot.create(:user, mobile_number: mobile_number) }
         let(:user) do
           { user: {
-            mobile_number: Faker::PhoneNumber.subscriber_number(length: 11),
-            code: code
-          }
+              mobile_number: mobile_number,
+              code: code
+            }
           }
         end
 
@@ -94,7 +120,16 @@ describe 'users/registrations', type: :request do
           allow(CodeAuthenticator).to receive(:check).with(code, nil).and_return(false)
         end
 
-        run_test!
+        run_test! do
+          parsed_body = JSON.parse(response.body)
+          expect(parsed_body['success']).to eq(false)
+
+          headers = response.headers
+          expect(headers['ifix-uid']).to eq(nil)
+          expect(headers['ifix-mobile-number']).to eq(nil)
+          expect(headers['ifix-token']).to eq(nil)
+          expect(headers['ifix-reset-token']).to eq(nil)
+        end
       end
     end
   end
