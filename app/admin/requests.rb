@@ -6,6 +6,8 @@ ActiveAdmin.register Request do
     id_column
     column :price
     column :status
+    column :lat
+    column :lng
     column :user do |r|
       r.user.full_name
     end
@@ -36,6 +38,8 @@ ActiveAdmin.register Request do
               as: :select,
               collection: ProviderService.all.map{ |ps| ["#{ps.name} | #{ps.provider.full_name}", ps.id] },
               include_blank: false
+      f.input :lat
+      f.input :lng
     end
     f.actions
   end

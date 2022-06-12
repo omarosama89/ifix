@@ -7,6 +7,8 @@ ActiveAdmin.register Provider do
     column :first_name
     column :last_name
     column :mobile_number
+    column :lat
+    column :lng
     column :created_at
     actions
   end
@@ -21,6 +23,8 @@ ActiveAdmin.register Provider do
       f.input :first_name
       f.input :last_name
       f.input :mobile_number
+      f.input :lat
+      f.input :lng
     end
     f.actions
   end
