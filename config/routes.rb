@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :services, only: [:index]
 
     resources :provider_services, only: [:index]
+
+    resources :requests, only: [:create ]
   end
   namespace :providers do
     resources :registrations, only: [] do
@@ -34,6 +36,14 @@ Rails.application.routes.draw do
       collection do
         post :login
         post :validate
+      end
+    end
+
+    resources :requests, only: [] do
+      member do
+        put :accept
+        put :process_request
+        put :complete
       end
     end
   end

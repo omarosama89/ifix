@@ -57,6 +57,87 @@ paths:
               required:
               - mobile_number
               - code
+  "/providers/requests/{id}/accept":
+    put:
+      summary: accept request
+      parameters:
+      - name: ifix-uid
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-token
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-mobile-number
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: request accepted
+        '401':
+          description: unauthorized
+  "/providers/requests/{id}/process_request":
+    put:
+      summary: accept request
+      parameters:
+      - name: ifix-uid
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-token
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-mobile-number
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: request processing
+        '401':
+          description: unauthorized
+  "/providers/requests/{id}/complete":
+    put:
+      summary: accept request
+      parameters:
+      - name: ifix-uid
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-token
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-mobile-number
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: request accepted
+        '401':
+          description: unauthorized
   "/providers/sessions/login":
     post:
       summary: login provider
@@ -124,29 +205,29 @@ paths:
         schema:
           type: string
       - name: service_ids
-        in: path
+        in: query
         description: service ids comma separated
         required: true
         schema:
           type: string
       - name: lat
-        in: path
+        in: query
         required: true
         schema:
           type: string
       - name: lng
-        in: path
+        in: query
         required: true
         schema:
           type: string
       - name: max_distance
-        in: path
-        required: true
+        in: query
+        required: false
         schema:
           type: integer
       responses:
         '200':
-          description: services listed
+          description: provider services listed
         '401':
           description: unauthorized
   "/users/registrations/sign_up":
@@ -202,6 +283,52 @@ paths:
               required:
               - mobile_number
               - code
+  "/users/requests":
+    post:
+      summary: create request
+      parameters:
+      - name: ifix-uid
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-token
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: ifix-mobile-number
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: request created
+        '401':
+          description: unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                request:
+                  type: object
+                  properties:
+                    lat:
+                      type: string
+                    lng:
+                      type: string
+                    request_details_attributes:
+                      type: array
+                      properties:
+                        id:
+                          type: integer
+                        request_id:
+                          type: integer
+                        provider_service_id:
+                          type: integer
   "/users/services":
     get:
       summary: list services
@@ -274,11 +401,11 @@ paths:
               - mobile_number
               - code
 servers:
-- url: https://{defaultHost}
-  variables:
-    defaultHost:
-      default: vfix.instajax.com
-- url: http://{defaultHost}
-  variables:
-    defaultHost:
-      default: localhost:3000
+  - url: https://{defaultHost}
+    variables:
+      defaultHost:
+        default: vfix.instajax.com
+  - url: http://{defaultHost}
+    variables:
+      defaultHost:
+        default: localhost:3000

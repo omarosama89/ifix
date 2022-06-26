@@ -33,7 +33,7 @@ describe 'users/services', type: :request do
         run_test! do
           parsed_body = JSON.parse(response.body)
           expect(parsed_body['success']).to eq(false)
-          expect(parsed_body['message']).to eq('unuthorized')
+          expect(parsed_body['message']).to eq('unauthorized')
         end
       end
     end

@@ -23,7 +23,7 @@
 !/storage/.keep
 
 # Ignore .idea
-/.idea/*
+.idea/
 
 
 /public/assets

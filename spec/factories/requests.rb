@@ -1,13 +1,16 @@
 FactoryBot.define do
   factory :request do
     price { Faker::Number.decimal(l_digits: 2, r_digits: 2) }
-    status { 'pending' }
+    status { Request::STATUSES[:pending] }
     user { create(:user) }
-    provider_service { create(:provider_service) }
     lat { Faker::Address.latitude }
     lng { Faker::Address.longitude }
 
-    Request::STATUSES.each do |status_name|
+    after :build do |request, e|
+      request.request_details = FactoryBot.create_list(:request_detail, 1, request: request)
+    end
+
+    Request::STATUSES.values.each do |status_name|
       trait status_name.to_sym do
         status { status_name }
       end
