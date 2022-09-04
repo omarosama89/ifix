@@ -1,5 +1,5 @@
 ActiveAdmin.register Service do
-  permit_params :name
+  permit_params :name, :icon
 
   index do
     selectable_column
@@ -12,9 +12,10 @@ ActiveAdmin.register Service do
   filter :name
   filter :created_at
 
-  form do |f|
+  form :html => { multipart: true } do |f|
     f.inputs do
       f.input :name
+      f.input :icon, as: :file
     end
     f.actions
   end

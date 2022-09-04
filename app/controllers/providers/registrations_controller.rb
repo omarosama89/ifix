@@ -32,6 +32,6 @@ class Providers::RegistrationsController < Providers::BaseController
   private
   
   def provider_params
-    @provider_params ||= params.require(:provider).permit(:first_name, :last_name, :mobile_number, :code)
+    @provider_params ||= params.require(:provider).permit(:first_name, :last_name, :mobile_number, :code, :lat, :lng, provider_services_attributes: [:service_id, :price])
   end
 end

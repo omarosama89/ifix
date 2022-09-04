@@ -1,2 +1,2 @@
 collection @services, :object_root => false
-attributes :id, :name
+attributes :id, :name, :icon

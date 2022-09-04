@@ -42,6 +42,8 @@ gem 'capistrano-rails',           '1.4.0'
 gem 'capistrano-rbenv',           '2.1.4 '
 gem 'capistrano-passenger',       '0.2.1'
 
+gem 'carrierwave', '~> 2.0'
+
 group :development, :test, :staging do
   gem 'rswag-specs'
   gem 'factory_bot_rails'

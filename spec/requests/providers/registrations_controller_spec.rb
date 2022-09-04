@@ -12,19 +12,35 @@ describe 'providers/registrations', type: :request do
             properties: {
               first_name: { type: :string },
               last_name: { type: :string },
-              mobile_number: { type: :string }
+              mobile_number: { type: :string },
+              lat: { type: :string },
+              lng: { type: :string },
+              provider_services_attributes: {
+                type: :array,
+                items: {
+                  type: :object,
+                  properties: {
+                    service_id: { type: :integer },
+                    price: { type: :number }
+                  }
+                }
+              }
             }
           }
         },
-        required: %w(first_name last_name mobile_number)
+        required: %w(first_name last_name mobile_number lat lng provider_services_attributes)
       }
 
       response '201', 'provider created' do
+        let!(:service) { FactoryBot.create(:service) }
         let(:provider) do
           { provider: {
             first_name: Faker::Name.first_name,
             last_name: Faker::Name.last_name,
-            mobile_number: Faker::PhoneNumber.subscriber_number(length: 11)
+            mobile_number: Faker::PhoneNumber.subscriber_number(length: 11),
+            lat: '30.056837',
+            lng: '31.238075',
+            provider_services_attributes: [{service_id: service.id, price: 50}]
           }
           }
         end
@@ -33,6 +49,8 @@ describe 'providers/registrations', type: :request do
           parsed_body = JSON.parse(response.body)
           expect(parsed_body['success']).to eq(true)
           expect(Provider.count).to be(1)
+          expect(Provider.last.provider_services.count).to eq(1)
+          expect(Provider.last.provider_services.last.service_id).to eq(service.id)
         end
       end
 

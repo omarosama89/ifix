@@ -18,10 +18,12 @@ describe 'users/requests', type: :request do
               lng: { type: :string },
               request_details_attributes: {
                 type: :array,
-                properties: {
-                  id: { type: :integer },
-                  request_id: { type: :integer },
-                  provider_service_id: { type: :integer }
+                items: {
+                  type: :object,
+                  properties: {
+                    request_id: { type: :integer },
+                    provider_service_id: { type: :integer }
+                  }
                 }
               }
             }

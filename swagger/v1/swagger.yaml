@@ -28,10 +28,26 @@ paths:
                       type: string
                     mobile_number:
                       type: string
+                    lat:
+                      type: string
+                    lng:
+                      type: string
+                    provider_services_attributes:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          service_id:
+                            type: integer
+                          price:
+                            type: number
               required:
               - first_name
               - last_name
               - mobile_number
+              - lat
+              - lng
+              - provider_services_attributes
   "/providers/registrations/validate":
     post:
       summary: validate provider
@@ -322,13 +338,13 @@ paths:
                       type: string
                     request_details_attributes:
                       type: array
-                      properties:
-                        id:
-                          type: integer
-                        request_id:
-                          type: integer
-                        provider_service_id:
-                          type: integer
+                      items:
+                        type: object
+                        properties:
+                          request_id:
+                            type: integer
+                          provider_service_id:
+                            type: integer
   "/users/services":
     get:
       summary: list services
