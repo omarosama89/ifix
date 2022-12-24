@@ -44,6 +44,9 @@ gem 'capistrano-passenger',       '0.2.1'
 
 gem 'carrierwave', '~> 2.0'
 
+gem 'ed25519', '~> 1.2'
+gem 'bcrypt_pbkdf', '~> 1'
+
 group :development, :test, :staging do
   gem 'rswag-specs'
   gem 'factory_bot_rails'
@@ -51,7 +54,7 @@ group :development, :test, :staging do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'webdrivers'
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'faker'
 end
 
 group :development, :test do
