@@ -7,13 +7,14 @@ class Users::BaseController < ApplicationController
     @current_user ||= User.find_by(id: request.headers['ifix-uid'])
   end
 
-  def authenticate_user!
-    mobile_number = request.headers['ifix-mobile-number']
-    token = request.headers['ifix-token']
-    unless current_user&.mobile_number == mobile_number && current_user&.token == token
-      render json: { success: false, errors: 'unauthorized' }, status: 401
-    end
-  end
+  # def authenticate_user!
+  #   mobile_number = request.headers['ifix-mobile-number']
+  #   token = request.headers['ifix-token']
+  #   binding.pry
+  #   unless current_user&.mobile_number == mobile_number && current_user&.token == token
+  #     render json: { success: false, errors: 'unauthorized' }, status: 401
+  #   end
+  # end
 
   private
 
