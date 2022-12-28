@@ -18,19 +18,6 @@ Rails.application.routes.draw do
   end
 
   namespace :users do
-    resources :registrations, only: [] do
-      collection do
-        post :sign_up
-        post :validate
-      end
-    end
-    resources :sessions, only: [] do
-      collection do
-        post :login
-        post :validate
-      end
-    end
-
     resources :services, only: [:index]
 
     resources :provider_services, only: [:index]
@@ -38,19 +25,6 @@ Rails.application.routes.draw do
     resources :requests, only: [:create ]
   end
   namespace :providers do
-    resources :registrations, only: [] do
-      collection do
-        post :sign_up
-        post :validate
-      end
-    end
-    resources :sessions, only: [] do
-      collection do
-        post :login
-        post :validate
-      end
-    end
-
     resources :requests, only: [] do
       member do
         put :accept
