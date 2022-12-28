@@ -23,7 +23,7 @@ gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 gem 'rswag-api'
 gem 'rswag-ui'
@@ -46,6 +46,10 @@ gem 'carrierwave', '~> 2.0'
 
 gem 'ed25519', '~> 1.2'
 gem 'bcrypt_pbkdf', '~> 1'
+
+gem 'devise_token_auth'
+
+gem 'omniauth'
 
 group :development, :test, :staging do
   gem 'rswag-specs'

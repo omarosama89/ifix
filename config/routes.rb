@@ -5,6 +5,18 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  namespace :auth do
+    mount_devise_token_auth_for 'User', at: 'users', controllers: {
+      registrations:      'auth/users/registrations',
+      sessions:           'auth/users/sessions',
+    }
+
+    mount_devise_token_auth_for 'Provider', at: 'providers', controllers: {
+      registrations:      'auth/providers/registrations',
+      sessions:           'auth/providers/sessions',
+    }
+  end
+
   namespace :users do
     resources :registrations, only: [] do
       collection do
