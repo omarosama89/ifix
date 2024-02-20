@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "6b75d8a8-1ca9-4b7e-abec-221470e8aa9e",
+		"name": "VFix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "1129658"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Providers",
+					"item": [
+						{
+							"name": "Registrations",
+							"item": [
+								{
+									"name": "SignUp",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"tests[\"Test status code is 200\"] = responseCode.code == 200;",
+													"if (responseCode.code == 200) {",
+													"    //var jsonHeader = JSON.parse(responseHeaders);",
+													"    //var jsonData = JSON.parse(responseBody);",
+													"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader(\"Access-Token\"));",
+													"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader(\"Client\"));",
+													"    postman.setEnvironmentVariable(\"mobile-number\", postman.getResponseHeader(\"Mobile-Number\"));",
+													"    postman.setEnvironmentVariable(\"expiry\", postman.getResponseHeader(\"Expiry\"));",
+													"    postman.setEnvironmentVariable(\"token-type\", postman.getResponseHeader(\"Token-Type\"));",
+													"    postman.setEnvironmentVariable(\"authorization\", postman.getResponseHeader(\"Authorization\"));",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"provider\": {\n        \"first_name\": \"Omar\",\n        \"last_name\": \"Osama\",\n        \"password\": \"12345678\",\n        \"password_confirmation\": \"12345678\",\n        \"mobile_number\": \"0114466242\",\n        \"lat\": \"31.314234234\",\n        \"lng\": \"31.323423423\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{url}}/auth/providers"
+									},
+									"response": []
+								},
+								{
+									"name": "SignUp - details",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"tests[\"Test status code is 200\"] = responseCode.code == 200;",
+													"if (responseCode.code == 200) {",
+													"    //var jsonHeader = JSON.parse(responseHeaders);",
+													"    //var jsonData = JSON.parse(responseBody);",
+													"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader(\"Access-Token\"));",
+													"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader(\"Client\"));",
+													"    postman.setEnvironmentVariable(\"mobile-number\", postman.getResponseHeader(\"Mobile-Number\"));",
+													"    postman.setEnvironmentVariable(\"expiry\", postman.getResponseHeader(\"Expiry\"));",
+													"    postman.setEnvironmentVariable(\"token-type\", postman.getResponseHeader(\"Token-Type\"));",
+													"    postman.setEnvironmentVariable(\"authorization\", postman.getResponseHeader(\"Authorization\"));",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "access-token",
+												"value": "GOt-qJ9fsk5SuJ4IhUAboA",
+												"type": "text"
+											},
+											{
+												"key": "expiry",
+												"value": "1673368035",
+												"type": "text"
+											},
+											{
+												"key": "token-type",
+												"value": "Bearer",
+												"type": "text"
+											},
+											{
+												"key": "client",
+												"value": "A64A8KRB-t-gsok6UQ9ndg",
+												"type": "text"
+											},
+											{
+												"key": "mobile-number",
+												"value": "01114466242",
+												"type": "text"
+											},
+											{
+												"key": "authorization",
+												"value": "Bearer eyJhY2Nlc3MtdG9rZW4iOiJHT3QtcUo5ZnNrNVN1SjRJaFVBYm9BIiwidG9rZW4tdHlwZSI6IkJlYXJlciIsImNsaWVudCI6IkE2NEE4S1JCLXQtZ3NvazZVUTluZGciLCJleHBpcnkiOiIxNjczMzY4MDM1IiwidWlkIjoiIn0=",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"provider\": {\n        \"provider_services_attributes\": [\n            {\n                \"service_id\": 1,\n                \"price\": 12.45\n            },\n            {\n                \"service_id\": 2,\n                \"price\": 14.90\n            }\n        ]\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "localhost:3000/auth/providers"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Sessions",
+							"item": [
+								{
+									"name": "LogIn",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"tests[\"Test status code is 200\"] = responseCode.code == 200;",
+													"if (responseCode.code == 200) {",
+													"    //var jsonHeader = JSON.parse(responseHeaders);",
+													"    //var jsonData = JSON.parse(responseBody);",
+													"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader(\"Access-Token\"));",
+													"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader(\"Client\"));",
+													"    postman.setEnvironmentVariable(\"mobile-number\", postman.getResponseHeader(\"Mobile-Number\"));",
+													"    postman.setEnvironmentVariable(\"expiry\", postman.getResponseHeader(\"Expiry\"));",
+													"    postman.setEnvironmentVariable(\"token-type\", postman.getResponseHeader(\"Token-Type\"));",
+													"    postman.setEnvironmentVariable(\"authorization\", postman.getResponseHeader(\"Authorization\"));",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"provider\": {\n        \"mobile_number\": \"0114466242\",\n        \"password\": \"12345678\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{url}}/auth/providers/sign_in"
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Registrations",
+							"item": [
+								{
+									"name": "SignUp",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"tests[\"Test status code is 200\"] = responseCode.code == 200;",
+													"if (responseCode.code == 200) {",
+													"    //var jsonHeader = JSON.parse(responseHeaders);",
+													"    //var jsonData = JSON.parse(responseBody);",
+													"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader(\"Access-Token\"));",
+													"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader(\"Client\"));",
+													"    postman.setEnvironmentVariable(\"mobile-number\", postman.getResponseHeader(\"Mobile-Number\"));",
+													"    postman.setEnvironmentVariable(\"expiry\", postman.getResponseHeader(\"Expiry\"));",
+													"    postman.setEnvironmentVariable(\"token-type\", postman.getResponseHeader(\"Token-Type\"));",
+													"    postman.setEnvironmentVariable(\"authorization\", postman.getResponseHeader(\"Authorization\"));",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"user\": {\n        \"first_name\": \"Omar\",\n        \"last_name\": \"Osama\",\n        \"password\": \"12345678\",\n        \"password_confirmation\": \"12345678\",\n        \"mobile_number\": \"0114466242\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{url}}/auth/users"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Sessions",
+							"item": [
+								{
+									"name": "LogIn",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"tests[\"Test status code is 200\"] = responseCode.code == 200;",
+													"if (responseCode.code == 200) {",
+													"    //var jsonHeader = JSON.parse(responseHeaders);",
+													"    //var jsonData = JSON.parse(responseBody);",
+													"    postman.setEnvironmentVariable(\"access-token\", postman.getResponseHeader(\"Access-Token\"));",
+													"    postman.setEnvironmentVariable(\"client\", postman.getResponseHeader(\"Client\"));",
+													"    postman.setEnvironmentVariable(\"mobile-number\", postman.getResponseHeader(\"Mobile-Number\"));",
+													"    postman.setEnvironmentVariable(\"expiry\", postman.getResponseHeader(\"Expiry\"));",
+													"    postman.setEnvironmentVariable(\"token-type\", postman.getResponseHeader(\"Token-Type\"));",
+													"    postman.setEnvironmentVariable(\"authorization\", postman.getResponseHeader(\"Authorization\"));",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"user\": {\n        \"mobile_number\": \"0114466242\",\n        \"password\": \"12345678\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{url}}/auth/users/sign_in"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Services",
+							"item": [
+								{
+									"name": "Index",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "access-token",
+												"value": "{{access-token}}",
+												"type": "text"
+											},
+											{
+												"key": "client",
+												"value": "{{client}}",
+												"type": "text"
+											},
+											{
+												"key": "mobile-number",
+												"value": "{{mobile-number}}",
+												"type": "text"
+											},
+											{
+												"key": "expiry",
+												"value": "{{expiry}}",
+												"type": "text"
+											},
+											{
+												"key": "token-type",
+												"value": "{{token-type}}",
+												"type": "text"
+											},
+											{
+												"key": "authorization",
+												"value": "{{authorization}}",
+												"type": "text"
+											}
+										],
+										"url": "{{url}}/users/services"
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
